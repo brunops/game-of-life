@@ -7,54 +7,14 @@
 
 var assert = require('assert');
 
-var Game = require('../game.js');
+var getNextGen = require('../game.js');
 
-describe('Game', function () {
-  var game;
-
-  beforeEach(function () {
-    game = new Game();
-  })
-
-  describe('constructor', function () {
-    describe('#Game()', function () {
-      it('is instanciable', function () {
-        assert(game instanceof Game);
-      });
-
-      it('width defaults to 5', function () {
-        assert.equal(game.width, 5);
-      });
-
-      it('height defaults to 5', function () {
-        assert.equal(game.height, 5);
-      });
-    });
-
-    describe('#Game(width)', function () {
-      it('`new Game(10)` initializes width with 10', function () {
-        game = new Game(10);
-
-        assert.equal(game.width, 10);
-      });
-
-      it('`new Game(10)` initializes height with 10', function () {
-        game = new Game(10);
-
-        assert.equal(game.height, 10);
-      });
-    });
-
-    describe('#Game(width)', function () {
-      it('Rectangular board - `new Game(10, 15)` initializes width with 10 and height with 15', function () {
-        game = new Game(10, 15);
-
-        assert.equal(game.width, 10);
-        assert.equal(game.height, 15);
-      });
+describe('getNextGen', function () {
+  it('throws an error if input is not an array', function () {
+    assert.throws(function () {
+      getNextGen();
     });
   });
-
 });
 
 

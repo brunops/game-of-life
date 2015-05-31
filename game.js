@@ -1,8 +1,9 @@
 'use strict';
 
-function Game(width, height) {
-  this.width = width || 5;
-  this.height = height || width || 5;
-}
+function getNextGen(board) {
+  if (!(board instanceof Array)) {
+    throw new Error('`board` needs to be an array');
+  }
+};
 
-module.exports = Game;
+module.exports = getNextGen;
