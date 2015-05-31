@@ -47,8 +47,18 @@ describe('getNextGen', function () {
   });
 
   describe('1st rule - Any live cell with fewer than two live neighbours dies', function () {
-    it('[[0, 0, 0], [0, 1, 0], [0, 0, 0]] returns all dead cells', function () {
+    it('[[0, 0, 0], \n\t[0, 1, 0], \n\t[0, 0, 0]] returns all dead cells', function () {
       assert.deepEqual(getNextGen([[0, 0, 0], [0, 1, 0], [0, 0, 0]]), [[0, 0, 0], [0, 0, 0], [0, 0, 0]]);
+    });
+
+    it('[[0, 0, 0], \n\t[0, 1, 1], \n\t[0, 0, 0]] returns all dead cells', function () {
+      var board = [
+        [0, 0, 0],
+        [0, 1, 1],
+        [0, 0, 0]
+      ];
+
+      assert.deepEqual(getNextGen([[0, 0, 0], [0, 1, 1], [0, 0, 0]]), [[0, 0, 0], [0, 0, 0], [0, 0, 0]]);
     });
   });
 });
