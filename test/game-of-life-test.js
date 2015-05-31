@@ -10,21 +10,21 @@ var assert = require('assert');
 var Game = require('../game.js');
 
 describe('Game', function () {
-  it('is instanciable', function () {
-    var game = new Game();
+  var game;
 
+  beforeEach(function () {
+    game = new Game();
+  })
+
+  it('is instanciable', function () {
     assert(game instanceof Game);
   });
 
   it('width defaults to 5', function () {
-    var game = new Game();
-
     assert.equal(game.width, 5);
   });
 
   it('height defaults to 5', function () {
-    var game = new Game();
-
     assert.equal(game.height, 5);
   });
 });
