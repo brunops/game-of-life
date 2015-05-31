@@ -25,6 +25,10 @@ describe('getNextGen', function () {
   it('1x1 board with a dead cell [[0]] remains dead', function () {
     assert.deepEqual(getNextGen([[0]]), [[0]]);
   });
+
+  it('A lonely living cell [[1]] dies', function () {
+    assert.deepEqual(getNextGen([[1]]), [[0]]);
+  });
 });
 
 
