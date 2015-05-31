@@ -27,4 +27,18 @@ describe('Game', function () {
   it('height defaults to 5', function () {
     assert.equal(game.height, 5);
   });
+
+  describe('#Game(width, height)', function () {
+    it('`new Game(10) initializes width with 10', function () {
+      game = new Game(10);
+
+      assert.equal(game.width, 10);
+    });
+
+    it('`new Game(10) initializes height with 10', function () {
+      game = new Game(10);
+
+      assert.equal(game.height, 10);
+    });
+  });
 });
