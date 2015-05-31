@@ -5,7 +5,13 @@ function getNextGen(board) {
     throw new Error('`board` needs to be an array of arrays');
   }
 
-  return [[0]];
+  board.forEach(function (row, i) {
+    row.map(function (cell, j) {
+      board[i][j] = 0;
+    });
+  });
+
+  return board;
 };
 
 module.exports = getNextGen;
