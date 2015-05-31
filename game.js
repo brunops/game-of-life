@@ -1,7 +1,7 @@
 'use strict';
 
-function Game(size) {
-  this.size = size;
+function Game(width) {
+  this.width = width || 5;
 }
 
 module.exports = Game;

@@ -15,4 +15,10 @@ describe('Game', function () {
 
     assert(game instanceof Game);
   });
+
+  it('width defaults to 5', function () {
+    var game = new Game();
+
+    assert.equal(game.width, 5);
+  });
 });
