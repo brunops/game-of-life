@@ -30,10 +30,25 @@ describe('getNextGen', function () {
     assert.deepEqual(getNextGen([[1]]), [[0]]);
   });
 
+  it('parameter is not changed - non-destructive function', function () {
+    var board = [
+      [0, 0, 0],
+      [0, 1, 0],
+      [0, 0, 0]
+    ];
+
+    getNextGen(board);
+
+    assert.deepEqual(board, [
+      [0, 0, 0],
+      [0, 1, 0],
+      [0, 0, 0]
+    ]);
+  });
+
   describe('1st rule - Any live cell with fewer than two live neighbours dies', function () {
     it('[[0, 0, 0], [0, 1, 0], [0, 0, 0]] returns all dead cells', function () {
       assert.deepEqual(getNextGen([[0, 0, 0], [0, 1, 0], [0, 0, 0]]), [[0, 0, 0], [0, 0, 0], [0, 0, 0]]);
-
     });
   });
 });
