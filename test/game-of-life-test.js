@@ -15,6 +15,12 @@ describe('getNextGen', function () {
       getNextGen();
     });
   });
+
+  it('throws an error if input is not an array of arrays', function () {
+    assert.throws(function () {
+      getNextGen([]);
+    });
+  });
 });
 
 

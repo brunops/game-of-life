@@ -1,8 +1,8 @@
 'use strict';
 
 function getNextGen(board) {
-  if (!(board instanceof Array)) {
-    throw new Error('`board` needs to be an array');
+  if (!(board instanceof Array) || !(board[0] instanceof Array)) {
+    throw new Error('`board` needs to be an array of arrays');
   }
 };
 
