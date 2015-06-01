@@ -71,6 +71,29 @@ describe('getNextGen', function () {
       assert.deepEqual(getNextGen(board), board);
     });
   });
+
+  describe('2nd rule - Any live cell with two or three live neighbours lives on to the next generation.', function () {
+
+    it('[[1, 1, 0], \n\t[0, 1, 0], \n\t[0, 0, 0]] returns the same board', function () {
+      var board = [
+        [1, 1, 0],
+        [0, 1, 0],
+        [0, 0, 0]
+      ];
+
+      assert.deepEqual(getNextGen(board), board);
+    });
+
+    it('[[1, 1, 0], \n\t[1, 1, 0], \n\t[0, 0, 0]] returns the same board', function () {
+      var board = [
+        [1, 1, 0],
+        [1, 1, 0],
+        [0, 0, 0]
+      ];
+
+      assert.deepEqual(getNextGen(board), board);
+    });
+  });
 });
 
 
