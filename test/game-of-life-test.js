@@ -144,6 +144,54 @@ describe('getNextGen', function () {
       ]);
     });
   });
+
+  describe('glider', function () {
+    it('gliders gonna glide', function () {
+      var board = [
+        [0, 1, 0, 0, 0],
+        [0, 0, 1, 0, 0],
+        [1, 1, 1, 0, 0],
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0]
+      ];
+
+      var nextGen = getNextGen(board);
+      assert.deepEqual(nextGen, [
+        [0, 0, 0, 0, 0],
+        [1, 0, 1, 0, 0],
+        [0, 1, 1, 0, 0],
+        [0, 1, 0, 0, 0],
+        [0, 0, 0, 0, 0]
+      ]);
+
+      nextGen = getNextGen(nextGen);
+      assert.deepEqual(nextGen, [
+        [0, 0, 0, 0, 0],
+        [0, 0, 1, 0, 0],
+        [1, 0, 1, 0, 0],
+        [0, 1, 1, 0, 0],
+        [0, 0, 0, 0, 0]
+      ]);
+
+      nextGen = getNextGen(nextGen);
+      assert.deepEqual(nextGen, [
+        [0, 0, 0, 0, 0],
+        [0, 1, 0, 0, 0],
+        [0, 0, 1, 1, 0],
+        [0, 1, 1, 0, 0],
+        [0, 0, 0, 0, 0]
+      ]);
+
+      nextGen = getNextGen(nextGen);
+      assert.deepEqual(nextGen, [
+        [0, 0, 0, 0, 0],
+        [0, 0, 1, 0, 0],
+        [0, 0, 0, 1, 0],
+        [0, 1, 1, 1, 0],
+        [0, 0, 0, 0, 0]
+      ]);
+    });
+  });
 });
 
 
