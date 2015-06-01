@@ -9,12 +9,44 @@ function getNextGen(board) {
 
   board.forEach(function (row, i) {
     result.push([]);
-    row.map(function (cell, j) {
-      result[i].push(0);
+    row.forEach(function (cell, j) {
+      result[i].push(getNextGenCell(i, j, board));
     });
   });
 
   return result;
 };
+
+function getNextGenCell(row, col, board) {
+  var totalLiveNeighbors = getTotalLiveNeighbors(row, col, board);
+
+  // under-population
+  if (totalLiveNeighbors < 2) {
+    return 0;
+  }
+
+  return board[row][col];
+}
+
+function getTotalLiveNeighbors(row, col, board) {
+  var total = 0,
+      neighRow,
+      neighCol;
+
+  for (var i = -1; i <= 1; ++i) {
+    neighRow = row + i;
+    for (var j = -1; j <= 1; ++j) {
+      neighCol = col + j;
+
+      if (typeof board[neighRow] !== 'undefined'
+          && typeof board[neighRow][neighCol] !== 'undefined'
+          && !(i === 0 && j === 0)) {
+        total += board[neighRow][neighCol];
+      }
+    }
+  }
+
+  return total;
+}
 
 module.exports = getNextGen;
