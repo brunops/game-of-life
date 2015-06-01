@@ -94,6 +94,36 @@ describe('getNextGen', function () {
       assert.deepEqual(getNextGen(board), board);
     });
   });
+
+  describe('3rd rule - Any live cell with more than three live neighbours dies, as if by overcrowding.', function () {
+    it('[[1, 1, 0], \n\t[0, 1, 0], \n\t[1, 1, 1]] center cell dies', function () {
+      var board = [
+        [1, 1, 0],
+        [0, 1, 0],
+        [1, 1, 1]
+      ];
+
+      assert.deepEqual(getNextGen(board), [
+        [1, 1, 0],
+        [0, 0, 0],
+        [1, 1, 1]
+      ]);
+    });
+
+    it('[[1, 1, 1], \n\t[1, 1, 1], \n\t[1, 1, 1]] only edge cells live', function () {
+      var board = [
+        [1, 1, 1],
+        [1, 1, 1],
+        [1, 1, 1]
+      ];
+
+      assert.deepEqual(getNextGen(board), [
+        [1, 0, 1],
+        [0, 0, 0],
+        [1, 0, 1]
+      ]);
+    });
+  });
 });
 
 
